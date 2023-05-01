@@ -1,0 +1,14 @@
+lang: ru
+
+tts:
+    selero_device: cpu
+    selero_speaker: xenia
+
+stt:
+    vosk_model_path: stt_model
+    audio_device: 1
+
+activation:
+    activation_phrase: лама
+    response_phrase: да
+    percentage_match_for_activation: 80
