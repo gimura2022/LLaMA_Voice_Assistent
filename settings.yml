@@ -12,3 +12,7 @@ activation:
     activation_phrase: лама
     response_phrase: да
     percentage_match_for_activation: 80
+
+experimental:
+    history_memorization: false
+    history_memorization_size: 128

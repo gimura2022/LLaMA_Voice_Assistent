@@ -27,6 +27,7 @@ loger.info("loading commands done!")
 
 translator = googletrans.Translator()
 called = False
+histry = []
 
 def convert_num(string: str):
     string_nums = []
@@ -69,11 +70,27 @@ def get_command(text: str):
     
     return commands[most_likely_command_index]
 
-@lru_cache()
-def gen():
-    loger.info("text generation...")
-    os.system("gen.bat")
-    loger.info("text generation done!")
+def gen(text):
+    histry.append(text)
+
+    if len(histry) > settings["experimental"]["history_memorization_size"]:
+        histry.pop(0)
+    
+    if settings["experimental"]["history_memorization"]:
+        with open("input.txt", "w", encoding="UTF-8") as file:
+            file.write("\n".join(histry))
+    
+    else:
+        with open("input.txt", "w", encoding="UTF-8") as file:
+            file.write(text)
+
+    @lru_cache()
+    def internal():
+        loger.info("text generation...")
+        os.system("gen.bat")
+        loger.info("text generation done!")
+
+    internal()
 
 loger.info("LLaMA assistent init complected!")
 
@@ -95,10 +112,7 @@ def main(text):
         en_text = translator.translate(text, src=settings["lang"]).text
         loger.info("request translation done!")
 
-        with open("input.txt", "w", encoding="UTF-8") as file:
-            file.write(en_text)
-
-        gen()
+        gen(en_text)
         loger.info(f"cache info:\nhits-{gen.cache_info().hits}\nmisses-{gen.cache_info().misses}\nmaxsize-{gen.cache_info().maxsize}\ncurrsize-{gen.cache_info().currsize}")
 
         try:
