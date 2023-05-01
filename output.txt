@@ -1,0 +1,9 @@
+def how_much_time(num): 
+    if num == 0:  
+        return "No Time" # This case is handled by an else clause below
+    
+    hours, minutes = divmod(num, 60) 
+        
+    days = int(hours / 3.5) + (hours % 3.5 == 0 or num > 1 hour and hrs < 24*7) # This case is handled by an else clause below    
+  
+    return "It took %.2f day%s to finish." %(days, days>1 and 's' or '')

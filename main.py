@@ -113,7 +113,7 @@ def main(text):
         loger.info("request translation done!")
 
         gen(en_text)
-        loger.info(f"cache info:\nhits-{gen.cache_info().hits}\nmisses-{gen.cache_info().misses}\nmaxsize-{gen.cache_info().maxsize}\ncurrsize-{gen.cache_info().currsize}")
+        loger.info(f"cache info:\nhits-{gen.internal.cache_info().hits}\nmisses-{gen.internal.cache_info().misses}\nmaxsize-{gen.internal.cache_info().maxsize}\ncurrsize-{gen.internal.cache_info().currsize}")
 
         try:
             with open("output.txt", encoding="UTF-8") as file:
