@@ -9,7 +9,6 @@ from fuzzywuzzy import fuzz
 from num2words import num2words
 from functools import lru_cache
 from datetime import datetime
-from threading import Thread
 
 loger = logging.getLogger("MAIN")
 date = datetime.now()

@@ -1,0 +1,10 @@
+googletrans==3.1.0a0
+PyYAML
+fuzzywuzzy
+num2words
+torch
+sounddevice
+vosk
+omegaconf
+numpy
+python-Levenshtein
