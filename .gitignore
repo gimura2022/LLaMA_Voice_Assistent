@@ -2,3 +2,5 @@ __pycache__
 latest_silero_models.yml
 test.py
 ggml-alpaca-7b-q4.bin
+input.txt
+output.txt
