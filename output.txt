@@ -1,9 +1,1 @@
-def how_much_time(num): 
-    if num == 0:  
-        return "No Time" # This case is handled by an else clause below
-    
-    hours, minutes = divmod(num, 60) 
-        
-    days = int(hours / 3.5) + (hours % 3.5 == 0 or num > 1 hour and hrs < 24*7) # This case is handled by an else clause below    
-  
-    return "It took %.2f day%s to finish." %(days, days>1 and 's' or '')
+Neural networks are computer systems modeled after biological neurons, which can learn from experience and make predictions based on data inputs. They have been used to solve complex problems in many fields such as image recognition or natural language processing but they also come with some risks due to their complexity. In particular, it has recently become possible for malicious actors to manipulate neural networks by providing them wrong input that can cause unpredictable behavior and even catastrophic failure of the system depending on its design.
