@@ -4,7 +4,6 @@ import os
 import logging
 import googletrans
 import yaml
-import eel
 from yaml.loader import SafeLoader
 from fuzzywuzzy import fuzz
 from num2words import num2words
@@ -16,10 +15,6 @@ loger = logging.getLogger("MAIN")
 date = datetime.now()
 loger.setLevel(logging.INFO)
 logging.basicConfig(level=logging.INFO, format='[%(name)s/%(asctime)s/%(levelname)s] %(message)s')
-
-loger.info("eel init...")
-eel.init("web")
-loger.info("eel init done!")
 
 loger.info("loading settings...")
 with open("settings.yml", encoding="UTF-8") as file:
@@ -98,18 +93,6 @@ def gen(text):
 
     gen_()
 
-@eel.expose()
-def get_history():
-    return "\n".join(histry)
-
-def eel_t():
-    eel.start("index.html")
-
-def main_t():
-    stt.start_audio_stream(main)
-
-loger.info("LLaMA assistent init complected!")
-
 def main(text):
     global called
 
@@ -160,11 +143,6 @@ def main(text):
 
         tts.play(command_yml["answer"])
 
-main_t_ = Thread(target=main_t)
-eel_t_ = Thread(target=eel_t)
+loger.info("LLaMA assistent init complected!")
 
-main_t_.start()
-eel_t_.start()
-
-main_t_.join()
-eel_t_.join()
+stt.start_audio_stream(main)

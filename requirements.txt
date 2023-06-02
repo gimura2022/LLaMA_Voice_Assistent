@@ -8,6 +8,3 @@ vosk
 omegaconf
 numpy
 python-Levenshtein
-eel
-keras
-tensorflow
